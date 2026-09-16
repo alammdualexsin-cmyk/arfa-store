@@ -9,110 +9,58 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: #f1f3f6; color: #212121; padding-bottom: 75px; }
 
-    /* Flipkart Top Header */
-    header { background-color: #2874f0; padding: 10px 14px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    /* Top Navbar */
+    header { background-color: #2874f0; padding: 10px 14px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
     .header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1000px; margin: 0 auto 8px auto; gap: 10px; }
     .nav-left { display: flex; align-items: center; gap: 12px; }
     .menu-icon { color: #fff; font-size: 20px; cursor: pointer; }
     .logo { color: #fff; font-size: 18px; font-weight: 800; text-decoration: none; }
     .logo span { color: #ffe500; font-size: 10px; font-style: italic; display: block; }
-    .hdr-btn { color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 4px; }
-    .cart-badge { background: #ff3b30; color: #fff; font-size: 11px; border-radius: 50%; padding: 2px 6px; position: absolute; top: -6px; right: -6px; font-weight: 800; border: 1px solid #fff; }
+    .hdr-btn { color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 4px; }
+    .cart-badge { background: #ff6161; color: #fff; font-size: 10px; border-radius: 50%; padding: 2px 6px; position: absolute; top: -6px; right: -6px; font-weight: 800; }
 
-    /* Search Box */
+    /* Search Bar */
     .search-box { position: relative; max-width: 1000px; margin: 0 auto; }
-    .search-box input { width: 100%; padding: 10px 40px 10px 14px; border-radius: 6px; border: none; outline: none; font-size: 13px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .search-box i { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #717478; font-size: 15px; }
+    .search-box input { width: 100%; padding: 9px 36px 9px 12px; border-radius: 6px; border: none; outline: none; font-size: 13px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #717478; }
 
-    /* Category Strip */
+    /* Categories Strip */
     .cat-strip { background: #fff; padding: 10px 8px; display: flex; gap: 14px; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid #e0e0e0; }
-    .cat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; min-width: 62px; }
-    .cat-circle { width: 46px; height: 46px; border-radius: 50%; background: #eef4ff; color: #2874f0; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1px solid #d0e1fd; }
+    .cat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; min-width: 60px; }
+    .cat-circle { width: 44px; height: 44px; border-radius: 50%; background: #e8f0fe; color: #2874f0; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1px solid #c2dbfe; }
     .cat-item.active .cat-circle { background: #2874f0; color: #fff; }
     .cat-name { font-size: 11px; font-weight: 600; color: #333; }
 
     /* Deal Banner */
     .deal-banner { max-width: 1000px; margin: 8px auto; padding: 0 10px; }
-    .deal-card { background: linear-gradient(90deg, #ffe500, #ffba00); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .deal-card { background: linear-gradient(90deg, #ffe500, #ffba00); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
     .deal-text h4 { font-size: 14px; font-weight: 800; color: #212121; }
     .deal-text p { font-size: 11px; font-weight: 600; color: #444; }
 
+    /* Product Grid */
     .container { max-width: 1000px; margin: 8px auto; padding: 0 10px; }
     .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     @media(min-width: 768px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
 
-    /* Product Card */
-    .product-card { background: #fff; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e5e9; position: relative; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-    .del-product-btn { position: absolute; top: 6px; right: 6px; background: rgba(0,0,0,0.65); color: #fff; border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-size: 12px; display: flex; align-items: center; justify-content: center; z-index: 2; }
-    .product-img { width: 100%; height: 140px; object-fit: cover; background: #fafafa; }
-    .product-details { padding: 10px 8px 6px 8px; display: flex; flex-direction: column; gap: 3px; flex-grow: 1; }
+    .product-card { background: #fff; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e5e5e5; position: relative; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+    .del-product-btn { position: absolute; top: 6px; right: 6px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 50%; width: 26px; height: 26px; cursor: pointer; font-size: 11px; }
+    .product-img { width: 100%; height: 135px; object-fit: cover; background: #eee; }
+    .product-details { padding: 8px; display: flex; flex-direction: column; gap: 3px; flex-grow: 1; }
     .spec-tag { font-size: 10px; background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 4px; width: fit-content; font-weight: 700; }
     .product-title { font-size: 13px; font-weight: 600; color: #212121; height: 34px; overflow: hidden; line-height: 1.3; }
-    .price-text { font-size: 16px; font-weight: 800; color: #212121; }
-    .stock-tag { font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; width: fit-content; }
+    .price-text { font-size: 15px; font-weight: 800; color: #212121; }
+    .stock-tag { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; width: fit-content; }
     .in-stock { background: #e8f5e9; color: #2e7d32; }
     .out-stock { background: #ffebee; color: #c62828; }
     .del-tag { font-size: 10px; color: #388e3c; font-weight: 700; }
 
-    /* Flipkart Dual Colored Action Buttons */
-    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; background: #fbfbfb; border-top: 1px solid #eee; }
-    .btn-add-cart {
-      background: linear-gradient(180deg, #ffb300, #ff9f00) !important;
-      color: #ffffff !important;
-      border: 1px solid #f59100 !important;
-      padding: 9px 4px !important;
-      font-size: 11px !important;
-      font-weight: 800 !important;
-      border-radius: 6px !important;
-      cursor: pointer;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      box-shadow: 0 2px 4px rgba(255,159,0,0.3);
-    }
-    .btn-buy-now {
-      background: linear-gradient(180deg, #fb6f28, #fb641b) !important;
-      color: #ffffff !important;
-      border: 1px solid #e0530f !important;
-      padding: 9px 4px !important;
-      font-size: 11px !important;
-      font-weight: 800 !important;
-      border-radius: 6px !important;
-      cursor: pointer;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      box-shadow: 0 2px 4px rgba(251,100,27,0.3);
-    }
-    .btn-disabled {
-      background: #e0e0e0 !important;
-      color: #888888 !important;
-      border: 1px solid #ccc !important;
-      box-shadow: none !important;
-      cursor: not-allowed;
-    }
+    /* Bold Flipkart Buttons */
+    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; background: #fdfdfd; border-top: 1px solid #eee; }
+    .btn-add-cart { background: #ff9f00 !important; color: #ffffff !important; border: 1px solid #e08b00; padding: 9px 4px; font-size: 12px; font-weight: 800; border-radius: 4px; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+    .btn-buy-now { background: #fb641b !important; color: #ffffff !important; border: 1px solid #dd5513; padding: 9px 4px; font-size: 12px; font-weight: 800; border-radius: 4px; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+    .btn-disabled { background: #d0d0d0 !important; color: #777 !important; border-color: #ccc !important; cursor: not-allowed; }
 
-    /* Cart Modal Item Row with Delete Button */
-    .cart-item-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px dashed #ddd;
-      gap: 8px;
-    }
-    .cart-item-info { flex: 1; }
-    .cart-item-title { font-size: 13px; font-weight: 700; color: #212121; }
-    .cart-item-sub { font-size: 11px; color: #666; margin-top: 2px; }
-    .cart-qty-ctrl { display: flex; align-items: center; gap: 8px; }
-    .qty-btn { background: #f1f3f6; border: 1px solid #ccc; width: 26px; height: 26px; border-radius: 4px; font-weight: 800; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .cart-del-btn { background: #ffebee; color: #d32f2f; border: 1px solid #ffcdd2; width: 30px; height: 30px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 13px; }
-
-    /* Drawer & Bottom Nav */
+    /* Drawer Menu */
     .side-menu { position: fixed; top: 0; left: -280px; width: 270px; height: 100%; background: #fff; z-index: 300; transition: left 0.25s ease; box-shadow: 2px 0 10px rgba(0,0,0,0.2); }
     .side-menu.open { left: 0; }
     .side-header { background: #2874f0; color: #fff; padding: 18px 16px; display: flex; align-items: center; justify-content: space-between; }
@@ -120,6 +68,7 @@
     .side-links li { padding: 12px 18px; display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 600; color: #444; border-bottom: 1px solid #f2f2f2; cursor: pointer; }
     .side-links li i { color: #2874f0; width: 20px; }
 
+    /* Bottom Nav */
     .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #d5d5d5; height: 56px; display: flex; justify-content: space-around; align-items: center; z-index: 150; }
     .nav-tab { display: flex; flex-direction: column; align-items: center; gap: 2px; color: #717478; font-size: 11px; font-weight: 600; cursor: pointer; flex: 1; }
     .nav-tab.active { color: #2874f0; }
@@ -134,6 +83,13 @@
     .form-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; outline: none; }
     .primary-btn { width: 100%; color: #fff; font-size: 14px; font-weight: 700; padding: 11px; border: none; border-radius: 6px; cursor: pointer; }
 
+    /* Cart Items Row Styling */
+    .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; gap: 8px; }
+    .cart-item-info { flex: 1; }
+    .cart-qty-ctrl { display: flex; align-items: center; gap: 6px; }
+    .qty-btn { background: #f1f3f6; border: 1px solid #ccc; width: 28px; height: 28px; border-radius: 4px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .del-cart-item-btn { background: #ff4d4f; color: #fff; border: none; width: 28px; height: 28px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+
     .order-history-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 10px; background: #fafafa; }
     .empty-state { grid-column: span 2; text-align: center; padding: 40px 10px; color: #777; background: #fff; border-radius: 8px; }
     @media(min-width: 768px) { .empty-state { grid-column: span 4; } }
@@ -141,7 +97,6 @@
 </head>
 <body>
 
-  <!-- Drawer -->
   <div class="side-menu" id="sideMenu">
     <div class="side-header">
       <h3 style="font-size:16px;">ARFA TRADING MENU</h3>
@@ -155,7 +110,6 @@
     </ul>
   </div>
 
-  <!-- Header -->
   <header>
     <div class="header-top">
       <div class="nav-left">
@@ -166,7 +120,7 @@
         </a>
       </div>
       <div class="hdr-btn" onclick="openCartModal()">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-cart-shopping" style="font-size: 18px;"></i>
         <span>Cart</span>
         <span class="cart-badge" id="headerCartCount">0</span>
       </div>
@@ -177,7 +131,6 @@
     </div>
   </header>
 
-  <!-- Categories -->
   <div class="cat-strip">
     <div class="cat-item active" onclick="filterCat('All', this)"><div class="cat-circle"><i class="fa-solid fa-border-all"></i></div><div class="cat-name">Sabhi</div></div>
     <div class="cat-item" onclick="filterCat('Aldrop', this)"><div class="cat-circle"><i class="fa-solid fa-lock"></i></div><div class="cat-name">Aldrop</div></div>
@@ -221,7 +174,7 @@
     <div class="nav-tab" onclick="openSupportModal()"><i class="fa-solid fa-headset"></i><span>Help</span></div>
   </nav>
 
-  <!-- Modal: Admin Add Item -->
+  <!-- Modal: Admin Add Item with Stock -->
   <div class="screen-overlay" id="adminModal">
     <div class="modal-box">
       <div class="modal-header">
@@ -251,7 +204,7 @@
     </div>
   </div>
 
-  <!-- Modal: Cart With Delete Button and + / - -->
+  <!-- Modal: Cart with Delete & Quantity Controls -->
   <div class="screen-overlay" id="cartModal">
     <div class="modal-box">
       <div class="modal-header">
@@ -259,13 +212,16 @@
         <button class="close-btn" onclick="closeModal('cartModal')">&times;</button>
       </div>
       <div id="cartItemsDetail" style="margin-bottom: 12px;"></div>
-      <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; border-top: 2px solid #eee; padding-top: 10px; margin-bottom: 12px;">
-        <span>Kul Bill (Total):</span>
+      <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; border-top: 1px solid #ddd; padding-top: 8px; margin-bottom: 12px;">
+        <span>Total Bill:</span>
         <span style="color:#2874f0;" id="cartGrandTotal">₹0</span>
       </div>
-      <button class="primary-btn" style="background:linear-gradient(180deg, #fb6f28, #fb641b);" onclick="closeModal('cartModal'); openCheckoutModal('CART');">
-        <i class="fa-solid fa-arrow-right"></i> Order Form Bharein
-      </button>
+      <div style="display: flex; gap: 8px;">
+        <button class="primary-btn" style="background:#ff4d4f; flex:1;" onclick="clearEntireCart()"><i class="fa-solid fa-trash"></i> Sabhi Hatao</button>
+        <button class="primary-btn" style="background:#fb641b; flex:2;" onclick="closeModal('cartModal'); openCheckoutModal('CART');">
+          <i class="fa-solid fa-arrow-right"></i> Order Slip Banayein
+        </button>
+      </div>
     </div>
   </div>
 
@@ -281,7 +237,7 @@
         <input type="tel" id="custPhone" class="form-input" placeholder="10 Digit Mobile Number" pattern="[0-9]{10}" required>
         <textarea id="custAddress" class="form-input" rows="3" placeholder="Pura Pata / Dukan ka Address / Landmark" required></textarea>
         <button type="submit" class="primary-btn" style="background: #25D366;">
-          <i class="fa-brands fa-whatsapp"></i> Confirm Karke WhatsApp Bhejein
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Par Order Bhejein
         </button>
       </form>
     </div>
@@ -306,7 +262,7 @@
   <script>
     const OWNER_PHONE = "918178085392";
     let products = JSON.parse(localStorage.getItem('arfa_products') || '[]');
-    let cart = {};
+    let cart = JSON.parse(localStorage.getItem('arfa_cart') || '{}');
     let orders = JSON.parse(localStorage.getItem('arfa_orders') || '[]');
     let activeCategory = 'All';
     let singleCheckoutItem = null;
@@ -376,13 +332,20 @@
     }
 
     function removeProduct(id) {
-      if(confirm("Kya aap is item ko hamesha ke liye dukan se hatana chahte hain?")) {
+      if(confirm("Kya aap is item ko store se hatana chahte hain?")) {
         products = products.filter(p => p.id !== id);
         delete cart[id];
+        saveCartState();
         localStorage.setItem('arfa_products', JSON.stringify(products));
         renderProducts(products);
         updateCartBadge();
       }
+    }
+
+    // CART OPERATIONS: ADD, INCREASE, DECREASE, REMOVE
+    function saveCartState() {
+      localStorage.setItem('arfa_cart', JSON.stringify(cart));
+      updateCartBadge();
     }
 
     function addToCart(id) {
@@ -390,7 +353,7 @@
       if(!p) return;
 
       if(p.stock <= 0) {
-        alert("⚠️ Maaf kijiye! Ye saman abhi Out of Stock (Khatam) hai.");
+        alert("⚠️ Maaf kijiye! Ye saman abhi Out of Stock hai.");
         return;
       }
 
@@ -401,36 +364,45 @@
       }
 
       cart[id] = currentQty + 1;
-      updateCartBadge();
-      alert(`✅ ${p.name} cart me jud gaya! (${cart[id]} packet)`);
+      saveCartState();
+      alert(`✅ ${p.name} cart me add ho gaya!`);
     }
 
-    // CART EDIT & DELETE FUNCTIONS
-    function changeCartQty(id, delta) {
+    function increaseCartQty(id) {
       const p = products.find(prod => prod.id == id);
       if(!p) return;
-
-      const currentQty = cart[id] || 0;
-      const newQty = currentQty + delta;
-
-      if(newQty > p.stock) {
-        alert(`⚠️ Stock me sirf ${p.stock} hi bacha hai.`);
+      if(cart[id] + 1 > p.stock) {
+        alert(`⚠️ Maximum stock limit: ${p.stock} hi uplabdh hai.`);
         return;
       }
-
-      if(newQty <= 0) {
-        deleteFromCart(id);
-      } else {
-        cart[id] = newQty;
-        updateCartBadge();
-        renderCartModalList();
-      }
+      cart[id]++;
+      saveCartState();
+      openCartModal();
     }
 
-    function deleteFromCart(id) {
+    function decreaseCartQty(id) {
+      if(!cart[id]) return;
+      if(cart[id] > 1) {
+        cart[id]--;
+      } else {
+        delete cart[id];
+      }
+      saveCartState();
+      openCartModal();
+    }
+
+    function deleteCartItem(id) {
       delete cart[id];
-      updateCartBadge();
-      renderCartModalList();
+      saveCartState();
+      openCartModal();
+    }
+
+    function clearEntireCart() {
+      if(confirm("Kya aap Cart ke sabhi items hatana chahte hain?")) {
+        cart = {};
+        saveCartState();
+        openCartModal();
+      }
     }
 
     function buyNowDirect(id) {
@@ -438,7 +410,7 @@
       if(!item) return;
 
       if(item.stock <= 0) {
-        alert("⚠️ Maaf kijiye! Ye saman abhi Out of Stock (Khatam) hai.");
+        alert("⚠️ Maaf kijiye! Ye saman abhi Out of Stock hai.");
         return;
       }
 
@@ -452,45 +424,36 @@
       document.getElementById('headerCartCount').innerText = count;
     }
 
-    function renderCartModalList() {
+    function openCartModal() {
       const detailContainer = document.getElementById('cartItemsDetail');
       const itemsInCart = Object.entries(cart);
-
       if(itemsInCart.length === 0) {
-        detailContainer.innerHTML = '<p style="color:#777; font-size:13px; text-align:center; padding:20px 0;">Cart abhi khali hai.</p>';
+        detailContainer.innerHTML = '<p style="color:#777; font-size:13px; text-align:center; padding:16px;">Cart abhi khali hai.</p>';
         document.getElementById('cartGrandTotal').innerText = '₹0';
-        return;
+      } else {
+        let total = 0;
+        detailContainer.innerHTML = itemsInCart.map(([id, qty]) => {
+          const item = products.find(p => p.id == id);
+          if(!item) return '';
+          const sub = item.price * qty;
+          total += sub;
+          return `
+            <div class="cart-item-row">
+              <div class="cart-item-info">
+                <div style="font-weight:700; font-size:13px;">${item.name}</div>
+                <div style="font-size:11px; color:#666;">${item.spec} • ₹${item.price} x ${qty}</div>
+                <div style="font-weight:800; color:#2874f0; font-size:13px; margin-top:2px;">₹${sub}</div>
+              </div>
+              <div class="cart-qty-ctrl">
+                <button class="qty-btn" onclick="decreaseCartQty('${id}')">-</button>
+                <span style="font-weight:700; font-size:13px; min-width:16px; text-align:center;">${qty}</span>
+                <button class="qty-btn" onclick="increaseCartQty('${id}')">+</button>
+                <button class="del-cart-item-btn" title="Hatao" onclick="deleteCartItem('${id}')"><i class="fa-solid fa-trash"></i></button>
+              </div>
+            </div>`;
+        }).join('');
+        document.getElementById('cartGrandTotal').innerText = `₹${total}`;
       }
-
-      let total = 0;
-      detailContainer.innerHTML = itemsInCart.map(([id, qty]) => {
-        const item = products.find(p => p.id == id);
-        if(!item) return '';
-        const sub = item.price * qty;
-        total += sub;
-        return `
-          <div class="cart-item-row">
-            <div class="cart-item-info">
-              <div class="cart-item-title">${item.name}</div>
-              <div class="cart-item-sub">${item.spec} • ₹${item.price}</div>
-              <div style="font-size:12px; font-weight:800; color:#2874f0; margin-top:2px;">₹${sub}</div>
-            </div>
-            <div class="cart-qty-ctrl">
-              <button class="qty-btn" onclick="changeCartQty(${item.id}, -1)">-</button>
-              <span style="font-weight:700; font-size:13px; min-width:18px; text-align:center;">${qty}</span>
-              <button class="qty-btn" onclick="changeCartQty(${item.id}, 1)">+</button>
-              <button class="cart-del-btn" title="Hataein" onclick="deleteFromCart(${item.id})">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
-          </div>`;
-      }).join('');
-
-      document.getElementById('cartGrandTotal').innerText = `₹${total}`;
-    }
-
-    function openCartModal() {
-      renderCartModalList();
       openModal('cartModal');
     }
 
@@ -521,7 +484,7 @@
         const isAvailable = (item.stock > 0);
         return `
         <div class="product-card">
-          <button class="del-product-btn" onclick="removeProduct(${item.id})" title="Dukan se delete karein"><i class="fa-solid fa-trash"></i></button>
+          <button class="del-product-btn" onclick="removeProduct(${item.id})"><i class="fa-solid fa-trash"></i></button>
           <img src="${item.photo}" class="product-img" alt="${item.name}">
           <div class="product-details">
             <span class="spec-tag">${item.spec}</span>
@@ -627,7 +590,7 @@
 
       if(!singleCheckoutItem) {
         cart = {};
-        updateCartBadge();
+        saveCartState();
       }
       singleCheckoutItem = null;
 
