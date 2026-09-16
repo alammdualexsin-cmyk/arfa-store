@@ -3,65 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARFA TRADING | Wholesale Hardware</title>
+  <title>ARFA TRADING | Wholesale Hardware Store</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #f1f3f6; color: #212121; padding-bottom: 95px; }
+    body { background-color: #f1f3f6; color: #212121; padding-bottom: 75px; }
 
-    /* Flipkart Header */
-    header { background-color: #2874f0; padding: 12px 14px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
-    .header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1000px; margin: 0 auto 8px auto; }
+    /* Flipkart Top Header */
+    header { background-color: #2874f0; padding: 10px 14px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+    .header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1000px; margin: 0 auto 8px auto; gap: 10px; }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .menu-icon { color: #fff; font-size: 20px; cursor: pointer; }
     .logo { color: #fff; font-size: 18px; font-weight: 800; text-decoration: none; }
-    .logo span { color: #ffe500; font-size: 11px; font-style: italic; display: block; }
-    .admin-toggle-btn { background: #ffe500; color: #212121; font-weight: 700; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; }
+    .logo span { color: #ffe500; font-size: 10px; font-style: italic; display: block; }
+    .header-right { display: flex; align-items: center; gap: 15px; }
+    .hdr-btn { color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 4px; cursor: pointer; position: relative; }
+    .cart-badge { background: #ff6161; color: #fff; font-size: 10px; border-radius: 50%; padding: 2px 5px; position: absolute; top: -6px; right: -8px; font-weight: 700; }
 
+    /* Search Box */
     .search-box { position: relative; max-width: 1000px; margin: 0 auto; }
-    .search-box input { width: 100%; padding: 9px 36px 9px 12px; border-radius: 6px; border: none; outline: none; font-size: 14px; }
+    .search-box input { width: 100%; padding: 8px 36px 8px 12px; border-radius: 6px; border: none; outline: none; font-size: 13px; }
     .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #717478; }
 
-    .container { max-width: 1000px; margin: 12px auto; padding: 0 10px; }
+    /* Category Icons Row */
+    .cat-strip { background: #fff; padding: 10px 8px; display: flex; gap: 14px; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid #e0e0e0; }
+    .cat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; min-width: 60px; }
+    .cat-circle { width: 44px; height: 44px; border-radius: 50%; background: #e8f0fe; color: #2874f0; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1px solid #c2dbfe; }
+    .cat-item.active .cat-circle { background: #2874f0; color: #fff; }
+    .cat-name { font-size: 11px; font-weight: 600; color: #333; }
 
-    /* Admin Panel Form */
-    .admin-section { background: #fff; border-radius: 8px; padding: 16px; margin-bottom: 16px; border: 2px dashed #2874f0; display: none; }
-    .admin-section h3 { margin-bottom: 12px; font-size: 16px; color: #2874f0; display: flex; align-items: center; gap: 8px; }
-    .admin-form { display: grid; grid-template-columns: 1fr; gap: 10px; }
-    @media(min-width: 600px) { .admin-form { grid-template-columns: 1fr 1fr; } }
-    .admin-form input { padding: 9px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; width: 100%; outline: none; }
-    .admin-btn { background: #2874f0; color: #fff; font-weight: 700; border: none; padding: 10px; border-radius: 6px; cursor: pointer; grid-column: span 1; }
-    @media(min-width: 600px) { .admin-btn { grid-column: span 2; } }
+    /* Deal Banner */
+    .deal-banner { max-width: 1000px; margin: 8px auto; padding: 0 10px; }
+    .deal-card { background: linear-gradient(90deg, #ffe500, #ffba00); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .deal-text h4 { font-size: 14px; font-weight: 800; color: #212121; }
+    .deal-text p { font-size: 11px; font-weight: 600; color: #444; }
+    .deal-badge { background: #2874f0; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+
+    .container { max-width: 1000px; margin: 8px auto; padding: 0 10px; }
 
     /* Product Cards */
     .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     @media(min-width: 768px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
 
-    .product-card { background: #fff; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e5e5e5; position: relative; }
-    .product-img { width: 100%; height: 140px; object-fit: cover; background: #eee; }
-    .product-details { padding: 10px; display: flex; flex-direction: column; gap: 4px; flex-grow: 1; }
-    .spec-tag { font-size: 11px; background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 4px; width: fit-content; font-weight: 700; }
+    .product-card { background: #fff; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e5e5e5; }
+    .product-img { width: 100%; height: 135px; object-fit: cover; background: #eee; }
+    .product-details { padding: 8px; display: flex; flex-direction: column; gap: 3px; flex-grow: 1; }
+    .spec-tag { font-size: 10px; background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 4px; width: fit-content; font-weight: 700; }
     .product-title { font-size: 13px; font-weight: 600; color: #212121; height: 34px; overflow: hidden; line-height: 1.3; }
-    .price-text { font-size: 16px; font-weight: 800; color: #212121; }
+    .price-text { font-size: 15px; font-weight: 800; color: #212121; }
     .del-tag { font-size: 10px; color: #388e3c; font-weight: 700; }
-
-    .card-actions { display: flex; gap: 6px; padding: 8px 10px; background: #fafafa; border-top: 1px solid #eee; }
+    .card-actions { display: flex; gap: 6px; padding: 6px 8px; background: #fafafa; border-top: 1px solid #eee; }
     .add-cart-btn { flex: 1; background: #fb641b; color: #fff; border: none; padding: 8px; font-size: 12px; font-weight: 700; border-radius: 4px; cursor: pointer; }
     .remove-item-btn { background: #ff4d4f; color: #fff; border: none; padding: 8px 10px; font-size: 12px; border-radius: 4px; cursor: pointer; }
 
-    /* Bottom Bill Bar */
-    .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 2px solid #2874f0; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 99; }
-    .bill-info { display: flex; flex-direction: column; }
-    .bill-info span:first-child { font-size: 12px; color: #666; font-weight: 600; }
-    .bill-total { font-size: 18px; font-weight: 800; color: #2874f0; }
-    .order-action-btn { background: #388e3c; color: #fff; border: none; padding: 10px 18px; font-size: 14px; font-weight: 700; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    /* Side Drawer Menu */
+    .side-menu { position: fixed; top: 0; left: -280px; width: 270px; height: 100%; background: #fff; z-index: 300; transition: left 0.25s ease; box-shadow: 2px 0 10px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
+    .side-menu.open { left: 0; }
+    .side-header { background: #2874f0; color: #fff; padding: 20px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .side-header h3 { font-size: 16px; font-weight: 800; }
+    .side-links { list-style: none; padding: 12px 0; overflow-y: auto; }
+    .side-links li { padding: 12px 18px; display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 600; color: #444; border-bottom: 1px solid #f2f2f2; cursor: pointer; }
+    .side-links li i { color: #2874f0; width: 20px; }
 
-    /* Customer Address Modal */
-    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
-    .modal-box { background: #fff; border-radius: 8px; width: 100%; max-width: 420px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+    /* Bottom Flipkart Navigation Bar */
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #d5d5d5; height: 56px; display: flex; justify-content: space-around; align-items: center; z-index: 150; }
+    .nav-tab { display: flex; flex-direction: column; align-items: center; gap: 2px; color: #717478; text-decoration: none; font-size: 11px; font-weight: 600; cursor: pointer; flex: 1; text-align: center; }
+    .nav-tab.active { color: #2874f0; }
+    .nav-tab i { font-size: 18px; }
+
+    /* Modals & Screens */
+    .screen-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 250; padding: 16px; }
+    .modal-box { background: #fff; border-radius: 8px; width: 100%; max-width: 440px; max-height: 85vh; overflow-y: auto; padding: 16px; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
     .modal-header h4 { font-size: 16px; color: #2874f0; }
-    .close-btn { background: none; border: none; font-size: 18px; cursor: pointer; color: #888; }
-    .customer-form input, .customer-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; outline: none; }
-    .submit-order-btn { width: 100%; background: #25D366; color: #fff; font-size: 15px; font-weight: 700; padding: 12px; border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: #888; }
+    .form-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; outline: none; }
+    .primary-btn { width: 100%; background: #2874f0; color: #fff; font-size: 14px; font-weight: 700; padding: 11px; border: none; border-radius: 6px; cursor: pointer; }
+
+    /* My Order Card */
+    .order-history-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 10px; background: #fafafa; }
+    .order-history-card h5 { font-size: 13px; color: #2874f0; margin-bottom: 4px; display: flex; justify-content: space-between; }
+    .order-status { font-size: 11px; font-weight: 700; color: #388e3c; }
+    .cancel-btn { background: #fff; color: #d32f2f; border: 1px solid #d32f2f; border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 700; cursor: pointer; margin-top: 6px; }
 
     .empty-state { grid-column: span 2; text-align: center; padding: 40px 10px; color: #777; background: #fff; border-radius: 8px; }
     @media(min-width: 768px) { .empty-state { grid-column: span 4; } }
@@ -69,94 +92,267 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
+  <!-- Side Navigation Drawer -->
+  <div class="side-menu" id="sideMenu">
+    <div class="side-header">
+      <h3>ARFA TRADING MENU</h3>
+      <i class="fa-solid fa-xmark" style="font-size: 20px; cursor: pointer;" onclick="toggleMenu()"></i>
+    </div>
+    <ul class="side-links">
+      <li onclick="toggleMenu(); showScreen('homeScreen')"><i class="fa-solid fa-house"></i> Home Shop</li>
+      <li onclick="toggleMenu(); showScreen('ordersScreen')"><i class="fa-solid fa-box"></i> My Orders (Track & Cancel)</li>
+      <li onclick="toggleMenu(); openAdminModal()"><i class="fa-solid fa-plus-circle"></i> + Naya Saman Jodein (Admin)</li>
+      <li onclick="toggleMenu(); openSupportModal()"><i class="fa-solid fa-headset"></i> Help & 24/7 Support</li>
+      <li onclick="toggleMenu(); openAboutModal()"><i class="fa-solid fa-store"></i> Wholesale Rate Info</li>
+    </ul>
+  </div>
+
+  <!-- Flipkart Top Header -->
   <header>
     <div class="header-top">
-      <a href="#" class="logo">
-        ARFA TRADING
-        <span>Wholesale Hardware</span>
-      </a>
-      <button class="admin-toggle-btn" onclick="toggleAdmin()">
-        <i class="fa-solid fa-plus-circle"></i> + Saman Jodein
-      </button>
+      <div class="nav-left">
+        <i class="fa-solid fa-bars menu-icon" onclick="toggleMenu()"></i>
+        <a href="#" class="logo" onclick="showScreen('homeScreen')">
+          ARFA TRADING
+          <span>Plus Hardware</span>
+        </a>
+      </div>
+      <div class="header-right">
+        <div class="hdr-btn" onclick="openCartModal()">
+          <i class="fa-solid fa-cart-shopping" style="font-size: 18px;"></i>
+          <span>Cart</span>
+          <span class="cart-badge" id="headerCartCount">0</span>
+        </div>
+      </div>
     </div>
     <div class="search-box">
-      <input type="text" id="searchBox" placeholder="Search size, mm, gez, ya item..." onkeyup="searchHardware()">
+      <input type="text" id="searchBox" placeholder="Aldrop, Hinges, 16MM, 6 Gez search karein..." onkeyup="searchHardware()">
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
   </header>
 
-  <div class="container">
-    <!-- Admin Item Add Form -->
-    <div class="admin-section" id="adminSection">
-      <h3><i class="fa-solid fa-box-open"></i> Naya Hardware Item Jodein</h3>
-      <form class="admin-form" id="itemForm" onsubmit="saveProduct(event)">
-        <input type="text" id="itemName" placeholder="Saman ka Naam (ex: Aldrop, Kabza)" required>
-        <input type="text" id="itemSpec" placeholder="Size / Gez / MM (ex: 16MM 6 Gez)" required>
-        <input type="number" id="itemPrice" placeholder="Rate / Price ₹ (ex: 180)" required>
-        <input type="text" id="itemDelivery" placeholder="Delivery time (ex: 2-3 Din)" value="2-3 Din" required>
-        <div>
-          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:4px;">Gallery se Photo Chunein:</label>
-          <input type="file" id="itemPhoto" accept="image/*" required>
-        </div>
-        <button type="submit" class="admin-btn"><i class="fa-solid fa-cloud-arrow-up"></i> Website Par Upload Karein</button>
-      </form>
+  <!-- Category Icons Row -->
+  <div class="cat-strip">
+    <div class="cat-item active" onclick="filterCat('All', this)">
+      <div class="cat-circle"><i class="fa-solid fa-border-all"></i></div>
+      <div class="cat-name">Sabhi</div>
     </div>
+    <div class="cat-item" onclick="filterCat('Aldrop', this)">
+      <div class="cat-circle"><i class="fa-solid fa-lock"></i></div>
+      <div class="cat-name">Aldrop</div>
+    </div>
+    <div class="cat-item" onclick="filterCat('Hinges', this)">
+      <div class="cat-circle"><i class="fa-solid fa-door-open"></i></div>
+      <div class="cat-name">Hinges</div>
+    </div>
+    <div class="cat-item" onclick="filterCat('Bolts', this)">
+      <div class="cat-circle"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="cat-name">Bolts</div>
+    </div>
+    <div class="cat-item" onclick="filterCat('Screws', this)">
+      <div class="cat-circle"><i class="fa-solid fa-wrench"></i></div>
+      <div class="cat-name">Screws</div>
+    </div>
+  </div>
 
-    <!-- Product Grid -->
-    <div style="font-size: 14px; font-weight: 700; margin-bottom: 10px;">Available Hardware Items</div>
+  <!-- Flipkart Best Deal Banner -->
+  <div class="deal-banner">
+    <div class="deal-card">
+      <div class="deal-text">
+        <h4>⚡ Wholesale Dhamaka Deal</h4>
+        <p>16MM 6 Gez Aldrop & Heavy Hinges par Best Discount</p>
+      </div>
+      <span class="deal-badge">Special Rate</span>
+    </div>
+  </div>
+
+  <!-- Home Main Shop Container -->
+  <div class="container" id="homeScreen">
+    <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px;">Available Items (<span id="totalItemsCount">0</span>)</div>
     <div class="product-grid" id="productContainer"></div>
   </div>
 
-  <!-- Bottom Bill Bar -->
-  <div class="cart-bar">
-    <div class="bill-info">
-      <span id="cartCount">0 Items chune gaye</span>
-      <span class="bill-total" id="cartTotal">Total: ₹0</span>
+  <!-- My Orders Page Screen -->
+  <div class="container" id="ordersScreen" style="display: none;">
+    <div style="font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+      <i class="fa-solid fa-box" style="color:#2874f0;"></i> My Orders (Aapke Diye Gaye Orders)
     </div>
-    <button class="order-action-btn" onclick="openCustomerModal()">
-      <i class="fa-solid fa-file-invoice"></i> Order Form Bharein
-    </button>
+    <div id="orderHistoryList"></div>
   </div>
 
-  <!-- Customer Address & Details Modal -->
-  <div class="modal-overlay" id="customerModal">
+  <!-- Bottom Flipkart App Bar -->
+  <nav class="bottom-nav">
+    <div class="nav-tab active" id="tabHome" onclick="showScreen('homeScreen'); setActiveTab('tabHome')">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </div>
+    <div class="nav-tab" id="tabCat" onclick="toggleMenu()">
+      <i class="fa-solid fa-list-ul"></i>
+      <span>Categories</span>
+    </div>
+    <div class="nav-tab" id="tabAdmin" onclick="openAdminModal()">
+      <i class="fa-solid fa-circle-plus" style="color:#2874f0;"></i>
+      <span>+ Saman</span>
+    </div>
+    <div class="nav-tab" id="tabOrders" onclick="showScreen('ordersScreen'); setActiveTab('tabOrders')">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span>My Orders</span>
+    </div>
+    <div class="nav-tab" id="tabSupport" onclick="openSupportModal()">
+      <i class="fa-solid fa-headset"></i>
+      <span>Help/Call</span>
+    </div>
+  </nav>
+
+  <!-- Modal: Admin Saman Upload (Gallery se Photo) -->
+  <div class="screen-overlay" id="adminModal">
     <div class="modal-box">
       <div class="modal-header">
-        <h4><i class="fa-solid fa-user-check"></i> Grahak Ki Details</h4>
-        <button class="close-btn" onclick="closeCustomerModal()">&times;</button>
+        <h4><i class="fa-solid fa-cloud-arrow-up"></i> Naya Hardware Item Jodein</h4>
+        <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
       </div>
-      <form class="customer-form" onsubmit="confirmAndSendOrder(event)">
-        <input type="text" id="custName" placeholder="Grahak / Dukan ka Pura Naam" required>
-        <input type="tel" id="custPhone" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 digit number dalein" required>
-        <textarea id="custAddress" rows="3" placeholder="Pura Pata / Dukan ka Address / Landmark" required></textarea>
-        <button type="submit" class="submit-order-btn">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp Par Order Bhejein
+      <form onsubmit="saveProduct(event)">
+        <input type="text" id="itemName" class="form-input" placeholder="Item ka Naam (ex: Aldrop, Kabza)" required>
+        <select id="itemCategory" class="form-input" required>
+          <option value="Aldrop">Aldrop</option>
+          <option value="Hinges">Hinges / Kabza</option>
+          <option value="Bolts">Bolts (Carriage / Tower)</option>
+          <option value="Screws">Screws & Fasteners</option>
+          <option value="Other">Other Hardware</option>
+        </select>
+        <input type="text" id="itemSpec" class="form-input" placeholder="Size / Gez / MM (ex: 16MM 6 Gez, 75x10x27)" required>
+        <input type="number" id="itemPrice" class="form-input" placeholder="Wholesale Rate ₹ (ex: 180)" required>
+        <input type="text" id="itemDelivery" class="form-input" placeholder="Delivery time (ex: 2-3 Din)" value="2-3 Din" required>
+        <label style="font-size: 12px; font-weight: 700; color: #555;">Gallery se Photo Chunein:</label>
+        <input type="file" id="itemPhoto" class="form-input" accept="image/*" required>
+        <button type="submit" class="primary-btn"><i class="fa-solid fa-check"></i> Website Par Add Karein</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Cart & Bill -->
+  <div class="screen-overlay" id="cartModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h4><i class="fa-solid fa-cart-shopping"></i> Shopping Cart & Bill</h4>
+        <button class="close-btn" onclick="closeModal('cartModal')">&times;</button>
+      </div>
+      <div id="cartItemsDetail" style="margin-bottom: 12px;"></div>
+      <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; border-top: 1px solid #ddd; padding-top: 8px; margin-bottom: 12px;">
+        <span>Total Bill:</span>
+        <span style="color:#2874f0;" id="cartGrandTotal">₹0</span>
+      </div>
+      <button class="primary-btn" style="background:#fb641b;" onclick="closeModal('cartModal'); openCustomerModal();">
+        <i class="fa-solid fa-arrow-right"></i> Order Details Bharein
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal: Customer Address Form -->
+  <div class="screen-overlay" id="customerModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h4><i class="fa-solid fa-truck-fast"></i> Delivery Address & Pata</h4>
+        <button class="close-btn" onclick="closeModal('customerModal')">&times;</button>
+      </div>
+      <form onsubmit="placeOrder(event)">
+        <input type="text" id="custName" class="form-input" placeholder="Grahak / Dukan ka Pura Naam" required>
+        <input type="tel" id="custPhone" class="form-input" placeholder="10 Digit Mobile Number" pattern="[0-9]{10}" required>
+        <textarea id="custAddress" class="form-input" rows="3" placeholder="Pura Pata, Dukan ka Naam ya Landmark" required></textarea>
+        <button type="submit" class="primary-btn" style="background: #25D366;">
+          <i class="fa-brands fa-whatsapp"></i> Confirm Order Slip Bhejein
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- Modal: Help & Support -->
+  <div class="screen-overlay" id="supportModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h4><i class="fa-solid fa-headset"></i> Help & Support</h4>
+        <button class="close-btn" onclick="closeModal('supportModal')">&times;</button>
+      </div>
+      <p style="font-size: 13px; line-height: 1.6; color: #444; margin-bottom: 12px;">
+        Arfa Trading Wholesale Hardware me kisi bhi item ke rate ya bulk quantity order ke liye humse direct sampark karein.
+      </p>
+      <a href="https://wa.me/?text=Namaste%20Arfa%20Trading,%20mujhe%20support%20chahiye" style="text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#fff; padding:10px; border-radius:6px; font-weight:700; font-size:14px; margin-bottom:8px;">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Support
+      </a>
     </div>
   </div>
 
   <script>
     let products = JSON.parse(localStorage.getItem('arfa_products') || '[]');
     let cart = {};
+    let orders = JSON.parse(localStorage.getItem('arfa_orders') || '[]');
+    let activeCategory = 'All';
 
-    function toggleAdmin() {
-      const el = document.getElementById('adminSection');
-      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    function toggleMenu() {
+      document.getElementById('sideMenu').classList.toggle('open');
+    }
+
+    function showScreen(screenId) {
+      document.getElementById('homeScreen').style.display = (screenId === 'homeScreen') ? 'block' : 'none';
+      document.getElementById('ordersScreen').style.display = (screenId === 'ordersScreen') ? 'block' : 'none';
+      if(screenId === 'ordersScreen') renderOrderHistory();
+    }
+
+    function setActiveTab(tabId) {
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      const activeEl = document.getElementById(tabId);
+      if(activeEl) activeEl.classList.add('active');
+    }
+
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+    function openAdminModal() { openModal('adminModal'); }
+    function openSupportModal() { openModal('supportModal'); }
+
+    function openCartModal() {
+      const detailContainer = document.getElementById('cartItemsDetail');
+      const itemsInCart = Object.entries(cart);
+      if(itemsInCart.length === 0) {
+        detailContainer.innerHTML = '<p style="color:#777; font-size:13px; text-align:center;">Cart abhi khali hai.</p>';
+        document.getElementById('cartGrandTotal').innerText = '₹0';
+      } else {
+        let total = 0;
+        detailContainer.innerHTML = itemsInCart.map(([id, qty]) => {
+          const item = products.find(p => p.id == id);
+          if(!item) return '';
+          const sub = item.price * qty;
+          total += sub;
+          return `
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:13px; border-bottom:1px dashed #eee; padding-bottom:4px;">
+              <div><b>${item.name}</b> (${item.spec})<br><small>₹${item.price} x ${qty}</small></div>
+              <div><b>₹${sub}</b></div>
+            </div>`;
+        }).join('');
+        document.getElementById('cartGrandTotal').innerText = `₹${total}`;
+      }
+      openModal('cartModal');
+    }
+
+    function openCustomerModal() {
+      if(Object.keys(cart).length === 0) {
+        alert("Cart me pehle saman jodein!");
+        return;
+      }
+      openModal('customerModal');
     }
 
     function saveProduct(e) {
       e.preventDefault();
       const fileInput = document.getElementById('itemPhoto');
       const file = fileInput.files[0];
-      if (!file) return;
+      if(!file) return;
 
       const reader = new FileReader();
       reader.onload = function(event) {
         const newProduct = {
           id: Date.now(),
           name: document.getElementById('itemName').value,
+          category: document.getElementById('itemCategory').value,
           spec: document.getElementById('itemSpec').value,
           price: Number(document.getElementById('itemPrice').value),
           delivery: document.getElementById('itemDelivery').value,
@@ -164,10 +360,9 @@
         };
         products.unshift(newProduct);
         localStorage.setItem('arfa_products', JSON.stringify(products));
-        document.getElementById('itemForm').reset();
-        toggleAdmin();
+        closeModal('adminModal');
         renderProducts(products);
-        alert("Saman successfully add ho gaya!");
+        alert("Naya Saman Website Par Upload Ho Gaya!");
       };
       reader.readAsDataURL(file);
     }
@@ -178,37 +373,32 @@
         delete cart[id];
         localStorage.setItem('arfa_products', JSON.stringify(products));
         renderProducts(products);
-        updateCartTotal();
+        updateCartBadge();
       }
     }
 
     function addToCart(id) {
       cart[id] = (cart[id] || 0) + 1;
-      updateCartTotal();
+      updateCartBadge();
+      alert("Item Cart me add ho gaya!");
     }
 
-    function updateCartTotal() {
-      let total = 0;
+    function updateCartBadge() {
       let count = 0;
-      for (const [id, qty] of Object.entries(cart)) {
-        const p = products.find(prod => prod.id == id);
-        if (p) {
-          total += p.price * qty;
-          count += qty;
-        }
-      }
-      document.getElementById('cartCount').innerText = `${count} Items Bill me shamil`;
-      document.getElementById('cartTotal').innerText = `Total: ₹${total}`;
+      for(const qty of Object.values(cart)) count += qty;
+      document.getElementById('headerCartCount').innerText = count;
     }
 
     function renderProducts(list) {
       const container = document.getElementById('productContainer');
+      document.getElementById('totalItemsCount').innerText = list.length;
+
       if(list.length === 0) {
         container.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-box-open" style="font-size:32px;color:#bbb;margin-bottom:8px;display:block;"></i>
-            Abhi koi saman add nahi hai.<br>
-            Upar <b>'+ Saman Jodein'</b> button daba kar gallery se photo aur size dalein!
+            Koi item nahi mila.<br>
+            Neeche <b>'+ Saman'</b> par dabakar gallery se photo aur size dalein!
           </div>`;
         return;
       }
@@ -220,70 +410,116 @@
             <span class="spec-tag">${item.spec}</span>
             <div class="product-title">${item.name}</div>
             <div class="price-text">₹${item.price}</div>
-            <div class="del-tag">⚡ Delivery: ${item.delivery}</div>
+            <div class="del-tag">⚡ ${item.delivery}</div>
           </div>
           <div class="card-actions">
-            <button class="add-cart-btn" onclick="addToCart(${item.id})">+ Bill Me Jodein</button>
+            <button class="add-cart-btn" onclick="addToCart(${item.id})">+ Add To Cart</button>
             <button class="remove-item-btn" onclick="removeProduct(${item.id})"><i class="fa-solid fa-trash"></i></button>
           </div>
         </div>
       `).join('');
     }
 
+    function filterCat(cat, el) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      const filtered = (cat === 'All') ? products : products.filter(p => p.category === cat);
+      renderProducts(filtered);
+    }
+
     function searchHardware() {
       const q = document.getElementById('searchBox').value.toLowerCase();
       const filtered = products.filter(p => 
-        p.name.toLowerCase().includes(q) || p.spec.toLowerCase().includes(q)
+        p.name.toLowerCase().includes(q) || p.spec.toLowerCase().includes(q) || (p.category && p.category.toLowerCase().includes(q))
       );
       renderProducts(filtered);
     }
 
-    function openCustomerModal() {
-      const itemsInCart = Object.entries(cart);
-      if(itemsInCart.length === 0) {
-        alert("Pehle koi saman bill me jodein!");
-        return;
-      }
-      document.getElementById('customerModal').style.display = 'flex';
-    }
-
-    function closeCustomerModal() {
-      document.getElementById('customerModal').style.display = 'none';
-    }
-
-    function confirmAndSendOrder(e) {
+    function placeOrder(e) {
       e.preventDefault();
       const name = document.getElementById('custName').value.trim();
       const phone = document.getElementById('custPhone').value.trim();
       const address = document.getElementById('custAddress').value.trim();
 
-      let orderSlip = `*📦 NAYA ORDER - ARFA TRADING*\n`;
-      orderSlip += `------------------------\n`;
-      orderSlip += `👤 *Grahak ka Naam:* ${name}\n`;
-      orderSlip += `📞 *Mobile Number:* ${phone}\n`;
-      orderSlip += `📍 *Pura Pata:* ${address}\n`;
-      orderSlip += `------------------------\n`;
-      orderSlip += `*HARDWARE ITEMS LIST:*\n`;
-
+      let orderItems = [];
       let grandTotal = 0;
+
       Object.entries(cart).forEach(([id, qty]) => {
         const item = products.find(p => p.id == id);
         if(item) {
-          const itemTotal = item.price * qty;
-          grandTotal += itemTotal;
-          orderSlip += `• ${item.name} (${item.spec})\n   Qty: ${qty} x ₹${item.price} = ₹${itemTotal}\n`;
+          const total = item.price * qty;
+          grandTotal += total;
+          orderItems.push({ name: item.name, spec: item.spec, qty: qty, price: item.price, total: total });
         }
       });
 
-      orderSlip += `------------------------\n`;
-      orderSlip += `*💰 KUL RAKAM (TOTAL BILL): ₹${grandTotal}*\n`;
-      orderSlip += `------------------------\nKripya is order ko confirm karein!`;
+      const newOrder = {
+        orderId: 'ARFA-' + Math.floor(1000 + Math.random() * 9000),
+        date: new Date().toLocaleDateString(),
+        customer: { name, phone, address },
+        items: orderItems,
+        totalBill: grandTotal,
+        status: 'Order Confirmed (Delivery in 2-3 Din)'
+      };
 
-      closeCustomerModal();
-      window.open(`https://wa.me/?text=${encodeURIComponent(orderSlip)}`, '_blank');
+      orders.unshift(newOrder);
+      localStorage.setItem('arfa_orders', JSON.stringify(orders));
+
+      // WhatsApp Slip Text
+      let slip = `*📦 NAYA ORDER - ARFA TRADING*\n`;
+      slip += `🆔 Order ID: #${newOrder.orderId}\n`;
+      slip += `------------------------\n`;
+      slip += `👤 *Grahak:* ${name}\n`;
+      slip += `📞 *Mobile:* ${phone}\n`;
+      slip += `📍 *Pata:* ${address}\n`;
+      slip += `------------------------\n*HARDWARE LIST:*\n`;
+      orderItems.forEach(i => {
+        slip += `• ${i.name} (${i.spec}) - ${i.qty} Qty = ₹${i.total}\n`;
+      });
+      slip += `------------------------\n`;
+      slip += `*💰 TOTAL BILL: ₹${grandTotal}*\n`;
+      slip += `Status: Order Placed`;
+
+      cart = {};
+      updateCartBadge();
+      closeModal('customerModal');
+      window.open(`https://wa.me/?text=${encodeURIComponent(slip)}`, '_blank');
+      showScreen('ordersScreen');
+      setActiveTab('tabOrders');
+    }
+
+    function renderOrderHistory() {
+      const box = document.getElementById('orderHistoryList');
+      if(orders.length === 0) {
+        box.innerHTML = '<p style="text-align:center; color:#777; padding:30px;">Abhi koi order nahi diya gaya hai.</p>';
+        return;
+      }
+
+      box.innerHTML = orders.map(o => `
+        <div class="order-history-card">
+          <h5><span>#${o.orderId}</span> <span>₹${o.totalBill}</span></h5>
+          <p style="font-size:12px; color:#555;"><b>Tareekh:</b> ${o.date}</p>
+          <p style="font-size:12px; color:#333;"><b>Items:</b> ${o.items.map(i => i.name + ' (' + i.qty + ')').join(', ')}</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:6px;">
+            <span class="order-status"><i class="fa-solid fa-circle-check"></i> ${o.status}</span>
+            <button class="cancel-btn" onclick="cancelOrder('${o.orderId}')">Order Cancel Karein</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function cancelOrder(id) {
+      if(confirm(`Kya aap order #${id} cancel karna chahte hain?`)) {
+        orders = orders.filter(o => o.orderId !== id);
+        localStorage.setItem('arfa_orders', JSON.stringify(orders));
+        renderOrderHistory();
+        alert(`Order #${id} cancel ho chuka hai.`);
+      }
     }
 
     renderProducts(products);
+    updateCartBadge();
   </script>
 </body>
 </html>
