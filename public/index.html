@@ -16,7 +16,7 @@
     .menu-icon { color: #fff; font-size: 20px; cursor: pointer; }
     .logo { color: #fff; font-size: 18px; font-weight: 800; text-decoration: none; }
     .logo span { color: #ffe500; font-size: 10px; font-style: italic; display: block; }
-    .hdr-btn { color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 4px; }
+    .hdr-btn { color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; background: rgba(255,255,255,0.18); padding: 6px 12px; border-radius: 4px; }
     .cart-badge { background: #ff6161; color: #fff; font-size: 10px; border-radius: 50%; padding: 2px 6px; position: absolute; top: -6px; right: -6px; font-weight: 800; }
 
     /* Search Bar */
@@ -24,14 +24,14 @@
     .search-box input { width: 100%; padding: 9px 36px 9px 12px; border-radius: 6px; border: none; outline: none; font-size: 13px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #717478; }
 
-    /* Categories Strip */
+    /* Category Chips */
     .cat-strip { background: #fff; padding: 10px 8px; display: flex; gap: 14px; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid #e0e0e0; }
     .cat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; min-width: 60px; }
     .cat-circle { width: 44px; height: 44px; border-radius: 50%; background: #e8f0fe; color: #2874f0; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1px solid #c2dbfe; }
     .cat-item.active .cat-circle { background: #2874f0; color: #fff; }
     .cat-name { font-size: 11px; font-weight: 600; color: #333; }
 
-    /* Deal Banner */
+    /* Super Deal Banner */
     .deal-banner { max-width: 1000px; margin: 8px auto; padding: 0 10px; }
     .deal-card { background: linear-gradient(90deg, #ffe500, #ffba00); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
     .deal-text h4 { font-size: 14px; font-weight: 800; color: #212121; }
@@ -42,23 +42,53 @@
     .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     @media(min-width: 768px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
 
-    .product-card { background: #fff; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e5e5e5; position: relative; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-    .del-product-btn { position: absolute; top: 6px; right: 6px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 50%; width: 26px; height: 26px; cursor: pointer; font-size: 11px; }
-    .product-img { width: 100%; height: 135px; object-fit: cover; background: #eee; }
+    .product-card { background: #fff; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e5e5e5; position: relative; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .del-product-btn { position: absolute; top: 6px; right: 6px; background: rgba(0,0,0,0.65); color: #fff; border: none; border-radius: 50%; width: 26px; height: 26px; cursor: pointer; font-size: 11px; z-index: 5; }
+    .product-img { width: 100%; height: 140px; object-fit: cover; background: #eee; }
     .product-details { padding: 8px; display: flex; flex-direction: column; gap: 3px; flex-grow: 1; }
     .spec-tag { font-size: 10px; background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 4px; width: fit-content; font-weight: 700; }
     .product-title { font-size: 13px; font-weight: 600; color: #212121; height: 34px; overflow: hidden; line-height: 1.3; }
-    .price-text { font-size: 15px; font-weight: 800; color: #212121; }
-    .stock-tag { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; width: fit-content; }
+    .price-text { font-size: 16px; font-weight: 800; color: #212121; }
+    .stock-tag { font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; width: fit-content; }
     .in-stock { background: #e8f5e9; color: #2e7d32; }
     .out-stock { background: #ffebee; color: #c62828; }
     .del-tag { font-size: 10px; color: #388e3c; font-weight: 700; }
 
-    /* Bold Flipkart Buttons */
-    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; background: #fdfdfd; border-top: 1px solid #eee; }
-    .btn-add-cart { background: #ff9f00 !important; color: #ffffff !important; border: 1px solid #e08b00; padding: 9px 4px; font-size: 12px; font-weight: 800; border-radius: 4px; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-    .btn-buy-now { background: #fb641b !important; color: #ffffff !important; border: 1px solid #dd5513; padding: 9px 4px; font-size: 12px; font-weight: 800; border-radius: 4px; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-    .btn-disabled { background: #d0d0d0 !important; color: #777 !important; border-color: #ccc !important; cursor: not-allowed; }
+    /* Flipkart Bright Solid Colored Buttons */
+    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; background: #fafafa; border-top: 1px solid #eee; }
+    .btn-add-cart { 
+      background: #ff9f00 !important; 
+      color: #ffffff !important; 
+      border: none !important; 
+      padding: 9px 2px; 
+      font-size: 11px; 
+      font-weight: 800; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      text-align: center; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 3px;
+      box-shadow: 0 1px 3px rgba(255,159,0,0.4);
+    }
+    .btn-buy-now { 
+      background: #fb641b !important; 
+      color: #ffffff !important; 
+      border: none !important; 
+      padding: 9px 2px; 
+      font-size: 11px; 
+      font-weight: 800; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      text-align: center; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 3px;
+      box-shadow: 0 1px 3px rgba(251,100,27,0.4);
+    }
+    .btn-add-cart:active, .btn-buy-now:active { transform: scale(0.97); }
 
     /* Drawer Menu */
     .side-menu { position: fixed; top: 0; left: -280px; width: 270px; height: 100%; background: #fff; z-index: 300; transition: left 0.25s ease; box-shadow: 2px 0 10px rgba(0,0,0,0.2); }
@@ -83,7 +113,10 @@
     .form-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; outline: none; }
     .primary-btn { width: 100%; color: #fff; font-size: 14px; font-weight: 700; padding: 11px; border: none; border-radius: 6px; cursor: pointer; }
 
-    /* Cart Items Row Styling */
+    /* Stock Row with Quantity & Unit (Packet/Pcs) */
+    .stock-input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+
+    /* Cart Row with Delete & +/- Controls */
     .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; gap: 8px; }
     .cart-item-info { flex: 1; }
     .cart-qty-ctrl { display: flex; align-items: center; gap: 6px; }
@@ -174,7 +207,7 @@
     <div class="nav-tab" onclick="openSupportModal()"><i class="fa-solid fa-headset"></i><span>Help</span></div>
   </nav>
 
-  <!-- Modal: Admin Add Item with Stock -->
+  <!-- Modal: Admin Add Item with Full English/Hindi Keyboard & Unit -->
   <div class="screen-overlay" id="adminModal">
     <div class="modal-box">
       <div class="modal-header">
@@ -182,20 +215,31 @@
         <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
       </div>
       <form onsubmit="saveProduct(event)">
-        <input type="text" id="itemName" class="form-input" placeholder="Item ka Naam (ex: Gypsum Packet, Aldrop)" required>
+        <input type="text" id="itemName" class="form-input" placeholder="Item ka Naam (ex: Gypsum, Aldrop)" required>
         <select id="itemCategory" class="form-input" required>
+          <option value="Gypsum">Gypsum / Plaster</option>
           <option value="Aldrop">Aldrop</option>
           <option value="Hinges">Hinges / Kabza</option>
-          <option value="Gypsum">Gypsum / Plaster</option>
           <option value="Bolts">Bolts / Nut</option>
           <option value="Pipes">Pipes / Fittings</option>
           <option value="Screws">Screws & Fasteners</option>
           <option value="Other">Other Hardware</option>
         </select>
-        <input type="text" id="itemSpec" class="form-input" placeholder="Size / Gez / Unit (ex: 1 Packet, 16MM 6 Gez)" required>
-        <input type="number" id="itemPrice" class="form-input" placeholder="Rate ₹ (ex: 350)" required>
-        <label style="font-size: 12px; font-weight: 700; color: #d32f2f;">Dukan me Kitna Stock (Packet/Pcs) Hai:</label>
-        <input type="number" id="itemStock" class="form-input" placeholder="Stock Quantity (ex: 1 ya 50)" min="0" required>
+        <input type="text" id="itemSpec" class="form-input" placeholder="Size / Gez / MM (ex: 3.5X75 300 pic, 16MM)" required>
+        <input type="number" id="itemPrice" class="form-input" placeholder="Rate ₹ (ex: 200)" required>
+        
+        <label style="font-size: 12px; font-weight: 700; color: #2874f0;">Kitna Stock Hai aur Unit (Packet / Pcs):</label>
+        <div class="stock-input-row">
+          <input type="text" id="itemStockQty" class="form-input" placeholder="Stock Ginti (ex: 10, 20)" style="margin-bottom:0;" required>
+          <select id="itemStockUnit" class="form-input" style="margin-bottom:0;">
+            <option value="Packet">Packet</option>
+            <option value="Pcs">Pcs (Piece)</option>
+            <option value="Box">Box</option>
+            <option value="KG">KG</option>
+            <option value="Meter">Meter</option>
+          </select>
+        </div>
+
         <input type="text" id="itemDelivery" class="form-input" placeholder="Delivery time (ex: 2-3 Din)" value="2-3 Din" required>
         <label style="font-size: 12px; font-weight: 700; color: #555;">Gallery se Photo Chunein:</label>
         <input type="file" id="itemPhoto" class="form-input" accept="image/*" required>
@@ -204,7 +248,7 @@
     </div>
   </div>
 
-  <!-- Modal: Cart with Delete & Quantity Controls -->
+  <!-- Modal: Cart -->
   <div class="screen-overlay" id="cartModal">
     <div class="modal-box">
       <div class="modal-header">
@@ -267,6 +311,15 @@
     let activeCategory = 'All';
     let singleCheckoutItem = null;
 
+    // Purane galat Out of stock item ko theek karein (auto-fix)
+    products.forEach(p => {
+      if(!p.stockQty || p.stockQty <= 0) {
+        p.stockQty = 20; // Default 20 stock set kar diya
+        p.stockUnit = p.stockUnit || 'Packet';
+      }
+    });
+    localStorage.setItem('arfa_products', JSON.stringify(products));
+
     function toggleMenu() { document.getElementById('sideMenu').classList.toggle('open'); }
     function openModal(id) { document.getElementById(id).style.display = 'flex'; }
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
@@ -309,13 +362,17 @@
           canvas.getContext('2d').drawImage(img, 0, 0, width, height);
           const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.65);
 
+          const rawQty = parseInt(document.getElementById('itemStockQty').value) || 1;
+          const unit = document.getElementById('itemStockUnit').value;
+
           const newProduct = {
             id: Date.now(),
             name: document.getElementById('itemName').value,
             category: document.getElementById('itemCategory').value,
             spec: document.getElementById('itemSpec').value,
             price: Number(document.getElementById('itemPrice').value),
-            stock: Number(document.getElementById('itemStock').value),
+            stockQty: rawQty,
+            stockUnit: unit,
             delivery: document.getElementById('itemDelivery').value,
             photo: compressedDataUrl
           };
@@ -324,7 +381,7 @@
           localStorage.setItem('arfa_products', JSON.stringify(products));
           closeModal('adminModal');
           renderProducts(products);
-          alert("Saman aur Stock successfully upload ho gaya!");
+          alert(`Saman aur Stock (${rawQty} ${unit}) successfully upload ho gaya!`);
         };
         img.src = event.target.result;
       };
@@ -342,7 +399,6 @@
       }
     }
 
-    // CART OPERATIONS: ADD, INCREASE, DECREASE, REMOVE
     function saveCartState() {
       localStorage.setItem('arfa_cart', JSON.stringify(cart));
       updateCartBadge();
@@ -352,14 +408,14 @@
       const p = products.find(prod => prod.id === id);
       if(!p) return;
 
-      if(p.stock <= 0) {
+      if(p.stockQty <= 0) {
         alert("⚠️ Maaf kijiye! Ye saman abhi Out of Stock hai.");
         return;
       }
 
       const currentQty = cart[id] || 0;
-      if(currentQty + 1 > p.stock) {
-        alert(`⚠️ Maaf kijiye! Hamare paas sirf ${p.stock} hi stock me bacha hai.`);
+      if(currentQty + 1 > p.stockQty) {
+        alert(`⚠️ Maaf kijiye! Hamare paas sirf ${p.stockQty} ${p.stockUnit} hi stock me bacha hai.`);
         return;
       }
 
@@ -371,8 +427,8 @@
     function increaseCartQty(id) {
       const p = products.find(prod => prod.id == id);
       if(!p) return;
-      if(cart[id] + 1 > p.stock) {
-        alert(`⚠️ Maximum stock limit: ${p.stock} hi uplabdh hai.`);
+      if(cart[id] + 1 > p.stockQty) {
+        alert(`⚠️ Maximum stock limit: sirf ${p.stockQty} ${p.stockUnit} uplabdh hai.`);
         return;
       }
       cart[id]++;
@@ -409,7 +465,7 @@
       const item = products.find(p => p.id === id);
       if(!item) return;
 
-      if(item.stock <= 0) {
+      if(item.stockQty <= 0) {
         alert("⚠️ Maaf kijiye! Ye saman abhi Out of Stock hai.");
         return;
       }
@@ -441,7 +497,7 @@
             <div class="cart-item-row">
               <div class="cart-item-info">
                 <div style="font-weight:700; font-size:13px;">${item.name}</div>
-                <div style="font-size:11px; color:#666;">${item.spec} • ₹${item.price} x ${qty}</div>
+                <div style="font-size:11px; color:#666;">${item.spec} • ₹${item.price} x ${qty} ${item.stockUnit}</div>
                 <div style="font-weight:800; color:#2874f0; font-size:13px; margin-top:2px;">₹${sub}</div>
               </div>
               <div class="cart-qty-ctrl">
@@ -481,7 +537,7 @@
       }
 
       container.innerHTML = list.map(item => {
-        const isAvailable = (item.stock > 0);
+        const isAvailable = (item.stockQty > 0);
         return `
         <div class="product-card">
           <button class="del-product-btn" onclick="removeProduct(${item.id})"><i class="fa-solid fa-trash"></i></button>
@@ -491,15 +547,15 @@
             <div class="product-title">${item.name}</div>
             <div class="price-text">₹${item.price}</div>
             <div class="stock-tag ${isAvailable ? 'in-stock' : 'out-stock'}">
-              ${isAvailable ? `📦 Stock: ${item.stock} Available` : '❌ Out of Stock (Khatam)'}
+              ${isAvailable ? `📦 Stock: ${item.stockQty} ${item.stockUnit || 'Packet'} Available` : '❌ Out of Stock'}
             </div>
             <div class="del-tag">⚡ Delivery: ${item.delivery}</div>
           </div>
           <div class="card-actions">
-            <button class="btn-add-cart ${!isAvailable ? 'btn-disabled' : ''}" onclick="addToCart(${item.id})">
+            <button class="btn-add-cart" onclick="addToCart(${item.id})">
               <i class="fa-solid fa-cart-plus"></i> Add Cart
             </button>
-            <button class="btn-buy-now ${!isAvailable ? 'btn-disabled' : ''}" onclick="buyNowDirect(${item.id})">
+            <button class="btn-buy-now" onclick="buyNowDirect(${item.id})">
               <i class="fa-solid fa-bolt"></i> Buy Now
             </button>
           </div>
@@ -535,28 +591,28 @@
 
       if(singleCheckoutItem) {
         const item = singleCheckoutItem.item;
-        if(item.stock < singleCheckoutItem.qty) {
+        if(item.stockQty < singleCheckoutItem.qty) {
           alert(`Maaf kijiye! ${item.name} stock me nahi hai.`);
           return;
         }
-        item.stock -= singleCheckoutItem.qty;
+        item.stockQty -= singleCheckoutItem.qty;
         const total = item.price * singleCheckoutItem.qty;
         grandTotal = total;
-        orderItems.push({ name: item.name, spec: item.spec, qty: singleCheckoutItem.qty, price: item.price, total: total });
+        orderItems.push({ name: item.name, spec: item.spec, qty: singleCheckoutItem.qty, unit: item.stockUnit, price: item.price, total: total });
       } else {
         for (const [id, qty] of Object.entries(cart)) {
           const item = products.find(p => p.id == id);
-          if(!item || item.stock < qty) {
+          if(!item || item.stockQty < qty) {
             alert(`⚠️ Maaf kijiye! ${item ? item.name : 'Saman'} ka stock kam pad gaya hai.`);
             return;
           }
         }
         Object.entries(cart).forEach(([id, qty]) => {
           const item = products.find(p => p.id == id);
-          item.stock -= qty;
+          item.stockQty -= qty;
           const total = item.price * qty;
           grandTotal += total;
-          orderItems.push({ name: item.name, spec: item.spec, qty: qty, price: item.price, total: total });
+          orderItems.push({ name: item.name, spec: item.spec, qty: qty, unit: item.stockUnit, price: item.price, total: total });
         });
       }
 
@@ -582,7 +638,7 @@
       slip += `📍 *Pata:* ${address}\n`;
       slip += `------------------------\n*ITEMS LIST:*\n`;
       orderItems.forEach(i => {
-        slip += `• ${i.name} (${i.spec}) - ${i.qty} Qty = ₹${i.total}\n`;
+        slip += `• ${i.name} (${i.spec}) - ${i.qty} ${i.unit || 'Packet'} = ₹${i.total}\n`;
       });
       slip += `------------------------\n`;
       slip += `*💰 TOTAL BILL: ₹${grandTotal}*\n`;
@@ -615,7 +671,7 @@
           </div>
           <p style="font-size:12px; color:#555; margin-top:3px;"><b>Tareekh:</b> ${o.date}</p>
           <p style="font-size:12px; color:#333;"><b>Grahak:</b> ${o.customer.name} (${o.customer.phone})</p>
-          <p style="font-size:12px; color:#333;"><b>Items:</b> ${o.items.map(i => i.name + ' x ' + i.qty).join(', ')}</p>
+          <p style="font-size:12px; color:#333;"><b>Items:</b> ${o.items.map(i => i.name + ' x ' + i.qty + ' ' + (i.unit || '')).join(', ')}</p>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
             <span style="font-size:11px; font-weight:700; color:#388e3c;"><i class="fa-solid fa-check-circle"></i> ${o.status}</span>
             <button style="background:#fff; color:#d32f2f; border:1px solid #d32f2f; border-radius:4px; padding:3px 8px; font-size:11px; font-weight:700; cursor:pointer;" onclick="cancelOrder('${o.orderId}')">Cancel Order</button>
@@ -631,7 +687,7 @@
       if(confirm(`Kya aap order #${id} cancel karna chahte hain?`)) {
         targetOrder.items.forEach(orderedItem => {
           const prod = products.find(p => p.name === orderedItem.name);
-          if(prod) prod.stock += orderedItem.qty;
+          if(prod) prod.stockQty += orderedItem.qty;
         });
         localStorage.setItem('arfa_products', JSON.stringify(products));
 
