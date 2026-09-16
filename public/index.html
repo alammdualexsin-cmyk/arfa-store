@@ -1,129 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arfa Trading - Hardware Store</title>
+  <title>ARFA TRADING | Wholesale Hardware Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f1f3f6; }
-    header { background: #2874f0; color: white; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
-    .container { padding: 16px; max-width: 800px; margin: auto; }
-    .card { background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-    .product-box { border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; background: #fff; }
-    .product-box h4 { margin: 5px 0; }
-    .badge { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; display: inline-block; margin-bottom: 4px; }
-    button { background: #fb641b; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 6px; }
-    input { width: 100%; padding: 8px; margin: 6px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #f1f3f6; color: #212121; }
+
+    /* Flipkart Style Header */
+    header { background-color: #2874f0; padding: 12px 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .header-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 1100px; margin: 0 auto 8px auto; }
+    .logo { color: #fff; font-size: 20px; font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+    .logo span { color: #ffe500; font-size: 11px; font-style: italic; font-weight: 600; display: block; }
+    .cart-btn { color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+
+    /* Search Bar */
+    .search-container { max-width: 1100px; margin: 0 auto; position: relative; }
+    .search-container input {
+      width: 100%; padding: 10px 40px 10px 14px; border-radius: 6px; border: none; outline: none; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+    .search-container i { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #717478; }
+
+    /* Category Chips */
+    .categories-bar { background: #fff; padding: 10px 14px; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .category-chip { background: #f1f3f6; border: 1px solid #e0e0e0; border-radius: 16px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; color: #444; }
+    .category-chip.active { background: #2874f0; color: #fff; border-color: #2874f0; }
+
+    /* Main Container */
+    .container { max-width: 1100px; margin: 12px auto; padding: 0 10px; }
+    .section-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+
+    /* Product Grid */
+    .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    @media(min-width: 768px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
+
+    /* Product Card */
+    .product-card { background: #fff; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #ebebeb; transition: transform 0.15s ease; position: relative; }
+    .product-card:active { transform: scale(0.98); }
+    .product-img { width: 100%; height: 150px; object-fit: cover; background: #fafafa; }
+    .product-details { padding: 10px; display: flex; flex-direction: column; gap: 4px; flex-grow: 1; }
+    .product-title { font-size: 13px; font-weight: 600; line-height: 1.3; color: #212121; height: 34px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .product-spec { font-size: 11px; color: #666; background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 4px; width: fit-content; font-weight: 600; }
+    .price-row { display: flex; align-items: baseline; gap: 6px; margin-top: 4px; }
+    .price { font-size: 16px; font-weight: 800; color: #212121; }
+    .delivery-badge { font-size: 10px; color: #388e3c; font-weight: 700; }
+
+    /* Order Button */
+    .order-btn { background: #fb641b; color: #fff; border: none; padding: 9px; font-size: 13px; font-weight: 700; border-radius: 4px; cursor: pointer; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; margin: 10px; margin-top: 4px; }
+    .order-btn:hover { background: #e05512; }
+
+    .no-results { text-align: center; padding: 40px 10px; font-size: 14px; color: #777; grid-column: span 2; }
+    @media(min-width: 768px) { .no-results { grid-column: span 4; } }
   </style>
 </head>
 <body>
 
+  <!-- Top Bar -->
   <header>
-    <h2>Arfa Trading</h2>
-    <span id="cart-count">Cart: 0</span>
+    <div class="header-top">
+      <a href="#" class="logo">
+        ARFA TRADING
+        <span>Plus Wholesale</span>
+      </a>
+      <a href="https://wa.me/91XXXXXXXXXX" class="cart-btn" id="contactWhatsApp">
+        <i class="fa-brands fa-whatsapp" style="font-size: 18px; color: #25D366;"></i> WhatsApp
+      </a>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search hardware (Aldrop, Hinges, MM, Gauge...)" onkeyup="filterItems()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
   </header>
 
+  <!-- Categories -->
+  <div class="categories-bar">
+    <button class="category-chip active" onclick="selectCategory('All', this)">Sabhi Items</button>
+    <button class="category-chip" onclick="selectCategory('Aldrop', this)">Aldrop (16mm / 6Gez)</button>
+    <button class="category-chip" onclick="selectCategory('Hinges', this)">Kabza / Hinges</button>
+    <button class="category-chip" onclick="selectCategory('Bolts', this)">Tower / Carriage Bolts</button>
+    <button class="category-chip" onclick="selectCategory('Screws', this)">Screws & Fasteners</button>
+  </div>
+
+  <!-- Product List Area -->
   <div class="container">
-    <!-- Product Adding Form (Admin) -->
-    <div class="card">
-      <h3>Naya Hardware Item Jodein</h3>
-      <input type="text" id="name" placeholder="Item Name (e.g., Al-Drop, Hinge, Screw)">
-      <input type="text" id="size_mm" placeholder="Size (mm) e.g., 16mm">
-      <input type="text" id="size_inch" placeholder="Size (inch) e.g., 10 inch">
-      <input type="text" id="weight" placeholder="Weight / Gauge e.g., 6 Gauge ya 250g">
-      <input type="number" id="price" placeholder="Price (₹)">
-      <button style="background: #2874f0;" onclick="addProduct()">Product Add Karein</button>
+    <div class="section-title">
+      <span>Hardware Products (<span id="itemCount">0</span>)</span>
+      <span style="font-size: 12px; color: #2874f0; font-weight: 600;">Best Wholesale Price</span>
     </div>
-
-    <!-- Product Listing -->
-    <div class="card">
-      <h3>Hardware Catalog</h3>
-      <div class="grid" id="product-list"></div>
-    </div>
-
-    <!-- Checkout -->
-    <div class="card">
-      <h3>Customer Order Details</h3>
-      <input type="text" id="cust-name" placeholder="Customer Name">
-      <input type="text" id="cust-phone" placeholder="Customer Mobile Number">
-      <button onclick="placeOrder()">Order Place Karein (WhatsApp Pe Bhejo)</button>
+    <div class="product-grid" id="productGrid">
+      <!-- Items will load dynamically -->
     </div>
   </div>
 
   <script>
-    let cart = [];
-    const ADMIN_PHONE = "918178085392";
+    // Demo Hardware items (Admin se naye items yahan aate rahenge)
+    const products = [
+      {
+        id: 1,
+        name: "Aldrop Stainless Steel Heavy Duty",
+        category: "Aldrop",
+        spec: "16MM • 6 Gez",
+        price: "₹185",
+        image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=500&auto=format&fit=crop&q=60",
+        delivery: "Delivery in 2-3 Din"
+      },
+      {
+        id: 2,
+        name: "Door Hinges (Kabza) Heavy Finish",
+        category: "Hinges",
+        spec: "75 X 10 X 27 MM",
+        price: "₹65",
+        image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500&auto=format&fit=crop&q=60",
+        delivery: "Delivery in 2 Din"
+      },
+      {
+        id: 3,
+        name: "Carriage Bolt & Nuts Grade 1",
+        category: "Bolts",
+        spec: "50MM Heavy Mota",
+        price: "₹18",
+        image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=500&auto=format&fit=crop&q=60",
+        delivery: "Delivery in 2-3 Din"
+      },
+      {
+        id: 4,
+        name: "Drywall Screws Box (Black Coating)",
+        category: "Screws",
+        spec: "25MM • 1 Box (100 Pcs)",
+        price: "₹90",
+        image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&auto=format&fit=crop&q=60",
+        delivery: "Delivery in 2-3 Din"
+      }
+    ];
 
-    async function loadProducts() {
-      const res = await fetch('/api/products');
-      const products = await res.json();
-      const div = document.getElementById('product-list');
-      div.innerHTML = '';
-      products.forEach(p => {
-        div.innerHTML += `
-          <div class="product-box">
-            <h4>${p.name}</h4>
-            <div class="badge">Size: ${p.size_mm || '-'} | ${p.size_inch || '-'}</div><br>
-            <div class="badge">Weight/Gauge: ${p.weight || '-'}</div>
-            <p><strong>₹${p.price}</strong></p>
-            <button onclick="addToCart('${p.name}', ${p.price})">Add to Cart</button>
+    let currentCategory = 'All';
+
+    function renderProducts(list) {
+      const grid = document.getElementById('productGrid');
+      const countEl = document.getElementById('itemCount');
+      countEl.innerText = list.length;
+
+      if(list.length === 0) {
+        grid.innerHTML = '<div class="no-results"><i class="fa-solid fa-box-open" style="font-size:32px;margin-bottom:8px;display:block;"></i>Koi item nahi mila. Dusra naam search karein.</div>';
+        return;
+      }
+
+      grid.innerHTML = list.map(item => `
+        <div class="product-card">
+          <img src="${item.image}" alt="${item.name}" class="product-img" loading="lazy">
+          <div class="product-details">
+            <span class="product-spec">${item.spec}</span>
+            <h3 class="product-title">${item.name}</h3>
+            <div class="price-row">
+              <span class="price">${item.price}</span>
+            </div>
+            <span class="delivery-badge">⚡ ${item.delivery}</span>
           </div>
-        `;
+          <button class="order-btn" onclick="orderNow('${item.name}', '${item.spec}', '${item.price}')">
+            <i class="fa-solid fa-bolt"></i> Order Now
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function filterItems() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = products.filter(item => {
+        const matchesCategory = (currentCategory === 'All' || item.category === currentCategory);
+        const matchesSearch = item.name.toLowerCase().includes(query) || item.spec.toLowerCase().includes(query);
+        return matchesCategory && matchesSearch;
       });
+      renderProducts(filtered);
     }
 
-    async function addProduct() {
-      const payload = {
-        name: document.getElementById('name').value,
-        size_mm: document.getElementById('size_mm').value,
-        size_inch: document.getElementById('size_inch').value,
-        weight: document.getElementById('weight').value,
-        price: parseFloat(document.getElementById('price').value)
-      };
-      if (!payload.name || !payload.price) return alert('Naam aur Price zaroori hai');
-
-      await fetch('/api/products', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      alert('Product jud gaya!');
-      loadProducts();
+    function selectCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      filterItems();
     }
 
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      document.getElementById('cart-count').innerText = `Cart: ${cart.length}`;
-      alert(`${name} cart me add ho gaya!`);
+    function orderNow(name, spec, price) {
+      const msg = `Namaste Arfa Trading, mujhe ye item order karna hai:\n\n📌 Item: ${name}\n📏 Size: ${spec}\n💰 Rate: ${price}\n\nDelivery kab tak milegi?`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    async function placeOrder() {
-      const name = document.getElementById('cust-name').value;
-      const phone = document.getElementById('cust-phone').value;
-      if (cart.length === 0) return alert('Cart khali hai');
-      if (!name || !phone) return alert('Customer detail bharein');
-
-      const total = cart.reduce((sum, item) => sum + item.price, 0);
-
-      const res = await fetch('/api/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ customer_name: name, customer_phone: phone, items: cart, total_price: total })
-      });
-      const data = await res.json();
-
-      let msg = `Naya Order (ID: ${data.orderId}) - Arfa Trading%0A`;
-      msg += `Customer: ${name} (${phone})%0AItems:%0A`;
-      cart.forEach(i => { msg += `- ${i.name}: Rs.${i.price}%0A`; });
-      msg += `Total: Rs.${total}`;
-
-      window.open(`https://wa.me/${ADMIN_PHONE}?text=${msg}`, '_blank');
-      cart = [];
-      document.getElementById('cart-count').innerText = 'Cart: 0';
-    }
-
-    loadProducts();
+    // Pehle se items show karein
+    renderProducts(products);
   </script>
 </body>
 </html>
